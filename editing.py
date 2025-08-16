@@ -6,7 +6,6 @@ VelocityConverter = {'88 - 90': 8,'89 - 91': 9, '90 - 92': 10, '91 - 93': 11, '9
 
 players = dict()
 
-print(players)
 
 def updateBatter(player, battingattrs, fieldingattrs, header):
     player[31] = TPEconverter[battingattrs.group('BABIPvsL')]
@@ -115,7 +114,7 @@ def updatePitcher(player, row, header):
 
 
         
-with open('mpbe_rostersw4.csv', newline='', encoding="UTF-8") as ootpcsvfile:
+with open('./roster/mpbe_rostersw4.csv', newline='', encoding="UTF-8") as ootpcsvfile:
     ootpdump = csv.reader(ootpcsvfile, delimiter=',', quotechar='"')
     counter = 0
     for row in ootpdump:
@@ -125,7 +124,7 @@ with open('mpbe_rostersw4.csv', newline='', encoding="UTF-8") as ootpcsvfile:
             counter += 1
     print("Players loaded: ", counter)  
 
-with open('roster_pages.csv', newline='', encoding="UTF-8") as dbcsvfile:
+with open('./roster/roster_pages.csv', newline='', encoding="UTF-8") as dbcsvfile:
     dbpostdumb = csv.reader(dbcsvfile, delimiter=',', quotechar='"')
     counter = 0
     processedBatters = 0
@@ -167,10 +166,9 @@ with open(r'C:\\Users\\sutem\\Downloads\\Expos\\modified_rooster_mlpbe.csv', 'w'
 
 
 players = dict()
-print(players)
 
         
-with open('pbe_rostersw4.csv', newline='', encoding="UTF-8") as ootpcsvfile:
+with open('./roster/pbe_rostersw4.csv', newline='', encoding="UTF-8") as ootpcsvfile:
     ootpdump = csv.reader(ootpcsvfile, delimiter=',', quotechar='"')
     counter = 0
     for row in ootpdump:
@@ -180,7 +178,7 @@ with open('pbe_rostersw4.csv', newline='', encoding="UTF-8") as ootpcsvfile:
             counter += 1
     print("Players loaded: ", counter)  
 
-with open('roster_pages.csv', newline='', encoding="UTF-8") as dbcsvfile:
+with open('./roster/roster_pages.csv', newline='', encoding="UTF-8") as dbcsvfile:
     dbpostdumb = csv.reader(dbcsvfile, delimiter=',', quotechar='"')
     counter = 0
     processedBatters = 0

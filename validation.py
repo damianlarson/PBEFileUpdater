@@ -153,7 +153,7 @@ def parsePitcher(player, row, header):
 
 players = dict()
 
-with open('pbe_rostersw4.csv', newline='', encoding="UTF-8") as ootpcsvfile:
+with open('./roster/pbe_rostersw4.csv', newline='', encoding="UTF-8") as ootpcsvfile:
     ootpdump = csv.reader(ootpcsvfile, delimiter=',', quotechar='"')
     counter = 0
     for row in ootpdump:
@@ -164,7 +164,7 @@ with open('pbe_rostersw4.csv', newline='', encoding="UTF-8") as ootpcsvfile:
     print("Loaded", counter, "players from pbe_rosters.csv")
 
     
-with open('mpbe_rostersw4.csv', newline='', encoding="UTF-8") as ootpcsvfile:
+with open('./roster/mpbe_rostersw4.csv', newline='', encoding="UTF-8") as ootpcsvfile:
     ootpdump = csv.reader(ootpcsvfile, delimiter=',', quotechar='"')
     counter = 0
     for row in ootpdump:
@@ -174,7 +174,7 @@ with open('mpbe_rostersw4.csv', newline='', encoding="UTF-8") as ootpcsvfile:
             counter += 1
     print("Loaded", counter, "players from mpbe_rosters.csv")
 
-with open('roster_pages.csv', newline='', encoding="UTF-8") as dbcsvfile:
+with open('./roster/roster_pages.csv', newline='', encoding="UTF-8") as dbcsvfile:
     dbpostdumb = csv.reader(dbcsvfile, delimiter=',', quotechar='"')
     counter = 0
     processedBatters = 0
