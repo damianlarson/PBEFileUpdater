@@ -62,7 +62,7 @@ def updatePitcher(player, row, header):
     # player[150] = TPEconverter[pitchingattrs.group('pbabip')]
     #pbabip set to 120 for all pitchers for now
     if (pBABIP != None):
-        player[150] = int(pBABIP.group('pBABIP'))
+        player[150] = int(pBABIP.group('pBABIP'))*2
     else:
         player[150] = 120
     player[62] = int(pitchingattrs.group('Stamina'))*2
