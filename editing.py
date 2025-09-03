@@ -10,19 +10,19 @@ players = dict()
 def updateBatter(player, battingattrs, fieldingattrs, header):
     player[31] = TPEconverter[battingattrs.group('BABIPvsL')]
     player[37] = TPEconverter[battingattrs.group('BABIPvsR')]
-    player[43] = TPEconverter[max(battingattrs.group('BABIPvsL'), battingattrs.group('BABIPvsR'))]
+    player[43] = TPEconverter[min(battingattrs.group('BABIPvsL'), battingattrs.group('BABIPvsR'))]
     player[30] = TPEconverter[battingattrs.group('AvoidvsL')]
     player[36] = TPEconverter[battingattrs.group('AvoidvsR')]
-    player[42] = TPEconverter[max(battingattrs.group('AvoidvsL'), battingattrs.group('AvoidvsR'))]
+    player[42] = TPEconverter[min(battingattrs.group('AvoidvsL'), battingattrs.group('AvoidvsR'))]
     player[27] = TPEconverter[battingattrs.group('GapvsL')]
     player[33] = TPEconverter[battingattrs.group('GapvsR')]
-    player[39] = TPEconverter[max(battingattrs.group('GapvsL'), battingattrs.group('GapvsR'))]
+    player[39] = TPEconverter[min(battingattrs.group('GapvsL'), battingattrs.group('GapvsR'))]
     player[28] = TPEconverter[battingattrs.group('PowervsL')]
     player[34] = TPEconverter[battingattrs.group('PowervsR')]
-    player[40] = TPEconverter[max(battingattrs.group('PowervsL'), battingattrs.group('PowervsR'))]
+    player[40] = TPEconverter[min(battingattrs.group('PowervsL'), battingattrs.group('PowervsR'))]
     player[29] = TPEconverter[battingattrs.group('EyevsL')]
     player[35] = TPEconverter[battingattrs.group('EyevsR')]
-    player[41] = TPEconverter[max(battingattrs.group('EyevsL'), battingattrs.group('EyevsR'))]
+    player[41] = TPEconverter[min(battingattrs.group('EyevsL'), battingattrs.group('EyevsR'))]
     player[26] = ""
     player[32] = ""
     player[47] = int(battingattrs.group('Speed'))*2
@@ -55,10 +55,10 @@ def updatePitcher(player, row, header):
     # print("Velocity:", velocity.group('Velocity').strip(), "Converted:", player[65])
     player[53] = TPEconverter[pitchingattrs.group('MovesvsL')]
     player[55] = TPEconverter[pitchingattrs.group('MovesvsR')]
-    player[57] = TPEconverter[max(pitchingattrs.group('MovesvsL'), pitchingattrs.group('MovesvsR'))]
+    player[57] = TPEconverter[min(pitchingattrs.group('MovesvsL'), pitchingattrs.group('MovesvsR'))]
     player[54] = TPEconverter[pitchingattrs.group('ControlvsL')]
     player[56] = TPEconverter[pitchingattrs.group('ControlvsR')]
-    player[58] = TPEconverter[max(pitchingattrs.group('ControlvsL'), pitchingattrs.group('ControlvsR'))]
+    player[58] = TPEconverter[min(pitchingattrs.group('ControlvsL'), pitchingattrs.group('ControlvsR'))]
     # player[150] = TPEconverter[pitchingattrs.group('pbabip')]
     #pbabip set to 120 for all pitchers for now
     if (pBABIP != None):
@@ -221,6 +221,8 @@ with open('./rosters/pbe_rosters.csv', newline='', encoding="UTF-8") as ootpcsvf
             players[key] = row
             counter += 1
     print("Players loaded: ", counter)  
+
+print(players)
 
 with open('./rosters/roster_pages.csv', newline='', encoding="UTF-8") as dbcsvfile:
     dbpostdumb = csv.reader(dbcsvfile, delimiter=',', quotechar='"')
