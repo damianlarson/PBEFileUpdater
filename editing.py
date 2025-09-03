@@ -77,46 +77,82 @@ def updatePitcher(player, row, header):
     if fastball != None:
         player[125] = TPEconverter[fastball.group('Fastball')]
         player[137] = TPEconverter[fastball.group('Fastball')]
+    else:
+        player[125] = 0
+        player[137] = 0
+
     slider = re.search(r"Slider: (?P<Slider>\d{2,3})",row[1])
     if slider != None:
         player[126] = TPEconverter[slider.group('Slider')]
         player[138] = TPEconverter[slider.group('Slider')]
+    else:
+        player[126] = 0
+        player[138] = 0
     curveball = re.search(r"Curveball: (?P<Curveball>\d{2,3})",row[1])
     if curveball != None:
         player[127] = TPEconverter[curveball.group('Curveball')]
-        player[139] = TPEconverter[curveball.group('Curveball')]    
+        player[139] = TPEconverter[curveball.group('Curveball')]
+    else:
+        player[127] = 0
+        player[139] = 0    
+
     changeup = re.search(r"Changeup: (?P<Changeup>\d{2,3})",row[1])
     if changeup != None:
         player[128] = TPEconverter[changeup.group('Changeup')]
         player[140] = TPEconverter[changeup.group('Changeup')]
+    else:
+        player[128] = 0
+        player[140] = 0
+
     cutter = re.search(r"Cutter: (?P<Cutter>\d{2,3})",row[1])
     if cutter != None:
         player[129] = TPEconverter[cutter.group('Cutter')]
         player[141] = TPEconverter[cutter.group('Cutter')]
+    else:
+        player[129] = 0
+        player[141] = 0
     sinker = re.search(r"Sinker: (?P<Sinker>\d{2,3})",row[1])
     if sinker != None:
         player[130] = TPEconverter[sinker.group('Sinker')]
         player[142] = TPEconverter[sinker.group('Sinker')]
+    else:
+        player[130] = 0
+        player[142] = 0
     splitter = re.search(r"Splitter: (?P<Splitter>\d{2,3})",row[1])
     if splitter != None:
         player[131] = TPEconverter[splitter.group('Splitter')]
         player[143] = TPEconverter[splitter.group('Splitter')]
+    else:
+        player[131] = 0
+        player[143] = 0
     forkball = re.search(r"Forkball: (?P<Forkball>\d{2,3})",row[1])
     if forkball != None:
         player[132] = TPEconverter[forkball.group('Forkball')]
         player[144] = TPEconverter[forkball.group('Forkball')]
+    else:
+        player[132] = 0
+        player[144] = 0
     screwball = re.search(r"Screwball: (?P<Screwball>\d{2,3})",row[1])
     if screwball != None:
         player[133] = TPEconverter[screwball.group('Screwball')]
         player[145] = TPEconverter[screwball.group('Screwball')]
-    circlechange = re.search(r"Circlechange: (?P<Circlechange>\d{2,3})",row[1])
+    else:
+        player[133] = 0
+        player[145] = 0
+    circlechange = re.search(r"Circle Change: (?P<Circlechange>\d{2,3})",row[1])
     if circlechange != None:
         player[134] = TPEconverter[circlechange.group('Circlechange')]
         player[146] = TPEconverter[circlechange.group('Circlechange')]
-    knucklecurve = re.search(r"Knucklecurve: (?P<Knucklecurve>\d{2,3})",row[1])
+    else:
+        player[134] = 0
+        player[146] = 0
+    knucklecurve = re.search(r"Knuckle Curve: (?P<Knucklecurve>\d{2,3})",row[1])
     if knucklecurve != None:
         player[135] = TPEconverter[knucklecurve.group('Knucklecurve')]
         player[147] = TPEconverter[knucklecurve.group('Knucklecurve')]
+    else:
+        player[135] = 0
+        player[147] = 0
     players[header.group('playername').lower().strip()] = player
 
 

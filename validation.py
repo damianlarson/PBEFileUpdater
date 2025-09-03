@@ -140,12 +140,12 @@ def parsePitcher(player, row, header):
         print(header.group('playername'), header.group('position'),"Screwball diff: ", player[133], " ", TPEconverter[screwball.group('Screwball')])
     if screwball != None and (int(player[145]) != TPEconverter[screwball.group('Screwball')]):
         print(header.group('playername'), header.group('position'),"Screwball Pot diff: ", player[145], " ", TPEconverter[screwball.group('Screwball')]) 
-    circlechange = re.search(r"Circlechange: (?P<Circlechange>\d{2,3})",row[1])
+    circlechange = re.search(r"Circle Change: (?P<Circlechange>\d{2,3})",row[1])
     if circlechange != None and (int(player[134]) != TPEconverter[circlechange.group('Circlechange')]):
         print(header.group('playername'), header.group('position'),"Circlechange diff: ", player[134], " ", TPEconverter[circlechange.group('Circlechange')])
     if circlechange != None and (int(player[146]) != TPEconverter[circlechange.group('Circlechange')]):
         print(header.group('playername'), header.group('position'),"Circlechange Pot diff: ", player[146], " ", TPEconverter[circlechange.group('Circlechange')])
-    knucklecurve = re.search(r"Knucklecurve: (?P<Knucklecurve>\d{2,3})",row[1])
+    knucklecurve = re.search(r"Knuckle Curve: (?P<Knucklecurve>\d{2,3})",row[1])
     if knucklecurve != None and (int(player[135]) != TPEconverter[knucklecurve.group('Knucklecurve')]):
         print(header.group('playername'), header.group('position'),"Knucklecurve diff: ", player[135], " ", TPEconverter[knucklecurve.group('Knucklecurve')])
     if knucklecurve != None and (int(player[147]) != TPEconverter[knucklecurve.group('Knucklecurve')]):
