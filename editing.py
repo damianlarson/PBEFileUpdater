@@ -146,7 +146,7 @@ def updatePitcher(player, row, header):
     else:
         player[134] = 0
         player[146] = 0
-    knucklecurve = re.search(r"Knuckle Curve: (?P<Knucklecurve>\d{2,3})",row[1])
+    knucklecurve = re.search(r"Knuckle Curve: (?P<Knucklecurve>\d{2,3})",row[1],re.I)
     if knucklecurve != None:
         player[135] = TPEconverter[knucklecurve.group('Knucklecurve')]
         player[147] = TPEconverter[knucklecurve.group('Knucklecurve')]
