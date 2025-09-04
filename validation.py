@@ -247,7 +247,7 @@ with open('./rosters/milpbe_rosters.csv', newline='', encoding="UTF-8") as ootpc
             counter += 1
     print("Loaded", counter, "players from mpbe_rosters.csv")
 
-with open('./rosters/sept3-roster_pages.csv', newline='', encoding="UTF-8") as dbcsvfile:
+with open('./rosters/roster_pages.csv', newline='', encoding="UTF-8") as dbcsvfile:
     dbpostdumb = csv.reader(dbcsvfile, delimiter=',', quotechar='"')
     counter = 0
     processedBatters = 0

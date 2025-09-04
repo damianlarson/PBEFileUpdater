@@ -6,6 +6,7 @@ VelocityConverter = {'88 - 90': 8,'89 - 91': 9, '90 - 92': 10, '91 - 93': 11, '9
 
 players = dict()
 
+wrong_titles = []
 
 def updateBatter(player, battingattrs, fieldingattrs, header):
     player[31] = TPEconverter[battingattrs.group('BABIPvsL')]
@@ -168,7 +169,7 @@ with open('./rosters/milpbe_rosters.csv', newline='', encoding="UTF-8") as ootpc
             counter += 1
     print("Players loaded: ", counter)  
 
-with open('./rosters/sept3-roster_pages.csv', newline='', encoding="UTF-8") as dbcsvfile:
+with open('./rosters/roster_pages.csv', newline='', encoding="UTF-8") as dbcsvfile:
     dbpostdumb = csv.reader(dbcsvfile, delimiter=',', quotechar='"')
     counter = 0
     processedBatters = 0
@@ -198,6 +199,7 @@ with open('./rosters/sept3-roster_pages.csv', newline='', encoding="UTF-8") as d
 
             else:
                 print("Wrong player thread title: " ,row[0])
+                wrong_titles.append([row[0]])
         counter += 1
     print("Processed Players: ", counter, " - Processed batters:", processedBatters, " - Processed pitchers:", processedPitchers)
 
@@ -222,7 +224,7 @@ with open('./rosters/pbe_rosters.csv', newline='', encoding="UTF-8") as ootpcsvf
             counter += 1
     print("Players loaded: ", counter)  
 
-with open('./rosters/sept3-roster_pages.csv', newline='', encoding="UTF-8") as dbcsvfile:
+with open('./rosters/roster_pages.csv', newline='', encoding="UTF-8") as dbcsvfile:
     dbpostdumb = csv.reader(dbcsvfile, delimiter=',', quotechar='"')
     counter = 0
     processedBatters = 0
@@ -252,6 +254,7 @@ with open('./rosters/sept3-roster_pages.csv', newline='', encoding="UTF-8") as d
 
             else:
                 print("Wrong player thread title: " ,row[0])
+                wrong_titles.append([row[0]])
         counter += 1
     print("Processed Players: ", counter, " - Processed batters:", processedBatters, " - Processed pitchers:", processedPitchers)
 
@@ -261,3 +264,9 @@ with open('./import/importPBE.csv', 'w', newline='', encoding="UTF-8") as output
         writer.writerow(player)
         # counter += 1
         # if(counter > 10): break
+
+with open('./errors/wrong_titles.csv', 'w', newline='', encoding="UTF-8") as outputcsvfile:
+    writer = csv.writer(outputcsvfile, delimiter=',', quotechar='"')
+    for player in wrong_titles:
+        writer.writerow(player)
+
